@@ -1,0 +1,65 @@
+# User Sign Up
+POST http://localhost:5001/user/signup
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "password123"
+}
+
+###
+# User Sign In
+POST http://localhost:5001/user/signin
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "password123"
+}
+
+###
+# Get User (Requires Token)
+GET http://localhost:5001/user/
+Authorization: Bearer {{token}}
+
+###
+# Create New Design
+POST http://localhost:5001/design/new
+Content-Type: application/json
+
+{
+  "title": "New Design",
+  "desc": "Description of the new design",
+  "keywords": ["keyword1", "keyword2"],
+  "components": [
+    {
+      "type": "text",
+      "id": "component1"
+    }
+  ]
+}
+
+###
+# Get Design by ID
+GET http://localhost:5001/design/{{designId}}
+
+###
+# Edit Design by ID
+PUT http://localhost:5001/design/edit/{{designId}}
+Content-Type: application/json
+
+{
+  "title": "Updated Design Title",
+  "desc": "Updated description",
+  "keywords": ["newkeyword1", "newkeyword2"],
+  "components": [
+    {
+      "type": "text",
+      "id": "component1"
+    },
+    {
+      "type": "image",
+      "id": "component2"
+    }
+  ]
+}
